@@ -1,0 +1,36 @@
+version: 2
+
+models:
+
+    - name: sales
+      description: One row by products and orders - all the columns and KPIs relatedto sales
+      tests:
+        - unique:
+            column_name: "(orders_id || '-' || products_id)"
+            
+      columns:
+          - name: orders_id
+            description: Identifier of orders
+            tests : 
+            - not_null 
+
+          - name: products_id
+            description: Identifier of products
+            tests : 
+            - not_null 
+
+
+          - name: qty
+
+          - name: turnover
+            description: Turnover based on quantity, orders and cost
+            tests : 
+            - not_null 
+
+          - name: purchase_cost
+            description: cost of order
+            tests : 
+            - not_null 
+
+          - name: margin
+            description: Calculated margin
